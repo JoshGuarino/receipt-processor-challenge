@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/gin-gonic/gin"
-	"github.com/joshguarino/receipt-processor/internal/handlers"
+	"github.com/joshguarino/receipt-processor-challenge/internal/handlers"
 )
 
 func main() {

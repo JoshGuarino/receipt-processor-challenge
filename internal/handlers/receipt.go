@@ -1,13 +1,11 @@
 package handlers
 
 import (
-	"encoding/json"
 	"net/http"
-	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/joshguarino/receipt-processor/internal/models"
-	"github.com/joshguarino/receipt-processor/internal/services"
+	"github.com/joshguarino/receipt-processor-challenge/internal/models"
+	"github.com/joshguarino/receipt-processor-challenge/internal/services"
 )
 
 func ProcessReceipt(c *gin.Context) {
@@ -17,10 +15,7 @@ func ProcessReceipt(c *gin.Context) {
 		return
 	}
 
-	receipt.PurchaseDate, _ = time.Parse("2006-01-02", receipt.PurchaseDate)
-	receipt.PurchaseTime, _ = time.Parse("15:04", receipt.PurchaseTime)
 	receipt.ID = services.GenerateReceiptID()
-
 	services.CalculatePoints(&receipt)
 
 	c.JSON(http.StatusOK, gin.H{"id": receipt.ID})
