@@ -16,7 +16,7 @@ func ProcessReceipt(c *gin.Context) {
 	}
 
 	receipt.ID = services.GenerateReceiptID()
-	services.CalculatePoints(&receipt)
+	receipt.Points = services.CalculatePoints(&receipt)
 
 	c.JSON(http.StatusOK, gin.H{"id": receipt.ID})
 }
