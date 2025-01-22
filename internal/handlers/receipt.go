@@ -8,7 +8,7 @@ import (
 	"github.com/joshguarino/receipt-processor-challenge/internal/services"
 )
 
-var receipts map[string]*models.Receipt = make(map[string]*models.Receipt)
+var receipts = make(map[string]*models.Receipt)
 
 func ProcessReceipt(c *gin.Context) {
 	var receipt models.Receipt
