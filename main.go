@@ -8,12 +8,12 @@ import (
 )
 
 func main() {
-	r := gin.Default()
+	router := gin.Default()
 
-	r.POST("/receipts/process", handlers.ProcessReceipt)
-	r.GET("/receipts/:id/points", handlers.GetReceiptPoints)
+	router.POST("/receipts/process", handlers.ProcessReceipt)
+	router.GET("/receipts/:id/points", handlers.GetReceiptPoints)
 
-	if err := r.Run(":8080"); err != nil {
+	if err := router.Run(":8080"); err != nil {
 		log.Fatal(err)
 	}
 }
